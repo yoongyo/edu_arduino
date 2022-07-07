@@ -1,8 +1,7 @@
 int btn = 13;
+int led = 3;
 
-int left3 = 3;
-
-int beforeState = 1;
+int state = 1;
 
 long previousMillis = 0;
 long currentMillis = 0;
@@ -13,6 +12,7 @@ void setup() {
 }
 
 void loop() {
+  // 버튼을 누르면
   if(digitalRead(btn) == 0) {
     blinkLED();
   }
@@ -21,84 +21,68 @@ void loop() {
 
 void blinkLED() {
   currentMillis = millis();
-  if (beforeState == 1) {
-    digitalWrite(right1, HIGH);
-    digitalWrite(left1, HIGH);
+  if (state == 1) {
+    digitalWrite(led, HIGH);
   }
-  if (currentMillis - previousMillis >= 1500 && beforeState == 1) {
-    digitalWrite(right1, LOW);
-    digitalWrite(left1, LOW);
+  if (currentMillis - previousMillis >= 1500 && state == 1) {
+    digitalWrite(led, LOW);
     previousMillis = currentMillis;
-    beforeState = 2;
+    state = 2;
   }
-  if (beforeState == 2) {
-    digitalWrite(left2, HIGH);
-    digitalWrite(right2, HIGH);
+  if (state == 2) {
+    digitalWrite(led, HIGH);
   }
-  if (currentMillis - previousMillis >= 1500 && beforeState == 2) {
-    digitalWrite(left2, LOW);
-    digitalWrite(right2, LOW);
+  if (currentMillis - previousMillis >= 1500 && state == 2) {
+    digitalWrite(led, LOW);
     previousMillis = currentMillis;
-    beforeState = 3;
+    state = 3;
   }
-  if (beforeState == 3) {
-    digitalWrite(left3, HIGH);
-    digitalWrite(right3, HIGH);
+  if (state == 3) {
+    digitalWrite(led, HIGH);
   }
-  if (currentMillis - previousMillis >= 1500 && beforeState == 3) {
-    digitalWrite(left3, LOW);
-    digitalWrite(right3, LOW);
+  if (currentMillis - previousMillis >= 1500 && state == 3) {
+    digitalWrite(led, LOW);
     previousMillis = currentMillis;
-    beforeState = 4;
+    state = 4;
   }
-  if (beforeState == 4) {
-    digitalWrite(left4, HIGH);
-    digitalWrite(right4, HIGH);
+  if (state == 4) {
+    digitalWrite(led, HIGH);
   }
-  if (currentMillis - previousMillis >= 1500 && beforeState == 4) {
-    digitalWrite(left4, LOW);
-    digitalWrite(right4, LOW);
+  if (currentMillis - previousMillis >= 1500 && state == 4) {
+    digitalWrite(led, LOW);
     previousMillis = currentMillis;
-    beforeState = 5;
+    state = 5;
   }
-  if (beforeState == 5) {
-    digitalWrite(left1, HIGH);
-    digitalWrite(right1, HIGH);
+  if (state == 5) {
+    digitalWrite(led, HIGH);
   }
-  if (currentMillis - previousMillis >= 1500 && beforeState == 5) {
-    digitalWrite(left1, LOW);
-    digitalWrite(right1, LOW);
+  if (currentMillis - previousMillis >= 1500 && state == 5) {
+    digitalWrite(led, LOW);
     previousMillis = currentMillis;
-    beforeState = 6;
+    state = 6;
   }
-  if (beforeState == 6) {
-    digitalWrite(left2, HIGH);
-    digitalWrite(right2, HIGH);
+  if (state == 6) {
+    digitalWrite(led, HIGH);
   }
-  if (currentMillis - previousMillis >= 1500 && beforeState == 6) {
-    digitalWrite(left2, LOW);
-    digitalWrite(right2, LOW);
+  if (currentMillis - previousMillis >= 1500 && state == 6) {
+    digitalWrite(led, LOW);
     previousMillis = currentMillis;
-    beforeState = 7;
+    state = 7;
   }
-  if (beforeState == 7) {
-    digitalWrite(left3, HIGH);
-    digitalWrite(right3, HIGH);
+  if (state == 7) {
+    digitalWrite(led, HIGH);
   }
-  if (currentMillis - previousMillis >= 1500 && beforeState == 7) {
-    digitalWrite(left3, LOW);
-    digitalWrite(right3, LOW);
+  if (currentMillis - previousMillis >= 1500 && state == 7) {
+    digitalWrite(led, LOW);
     previousMillis = currentMillis;
-    beforeState = 8;
+    state = 8;
   }
-  if (beforeState == 8) {
-    digitalWrite(left4, HIGH);
-    digitalWrite(right4, HIGH);
+  if (state == 8) {
+    digitalWrite(led, HIGH);
   }
-  if (currentMillis - previousMillis >= 1500 && beforeState == 8) {
-    digitalWrite(left4, LOW);
-    digitalWrite(right4, LOW);
+  if (currentMillis - previousMillis >= 1500 && state == 8) {
+    digitalWrite(led, LOW);
     previousMillis = currentMillis;
-    beforeState = 1;
+    state = 1;
   }
 }
